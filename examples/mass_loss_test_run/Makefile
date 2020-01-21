@@ -20,7 +20,7 @@ REBX_DIR=../../
 all: librebound.so libreboundx.so
 	@echo ""
 	@echo "Compiling problem file ..."
-	$(CC) -I$(REBX_DIR)/src/ -I$(REB_DIR)/src/ -Wl,-rpath,./ $(OPT) $(PREDEF) mass_loss_test_run.c -L. -lreboundx -lrebound $(LIB) -o rebound
+	$(CC) -I$(REBX_DIR)/src/ -I$(REB_DIR)/src/ -Wl,-rpath,./ $(OPT) $(PREDEF) mass_loss_test_sun_earth.c -L. -lreboundx -lrebound $(LIB) -o rebound
 	@echo ""
 	@echo "Problem file compiled successfully."
 

@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
         reb_integrate(sim,10000.);
         rebx_free(rebx);
         
-        printf("%f\n",p1.m);
+        printf("%f\n",sim->particles[0].m);
         printf("%f\n", sim->t);
         printf("%f", p2.x);
         
