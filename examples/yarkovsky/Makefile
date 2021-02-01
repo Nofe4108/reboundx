@@ -5,12 +5,15 @@ export REB_DIR= /Users/nferich/GitHub/rebound
 
 include $(REB_DIR)/src/Makefile.defs
 
+PROBLEMDIR=$(shell basename `dirname \`pwd\``)"/"$(shell basename `pwd`)
+
 export REBX_DIR= /Users/nferich/GitHub/reboundx
+
 
 all: librebound.so libreboundx.so
 	@echo ""
 	@echo "Compiling problem file ..."
-	$(CC) -I$(REBX_DIR)/src/ -I$(REB_DIR)/src/ -Wl,-rpath,./ $(OPT) $(PREDEF) problem.c -L. -lreboundx -lrebound $(LIB) -o rebound
+	$(CC) -I$(REBX_DIR)/src/ -I$(REB_DIR)/src/ -Wl,-rpath,./ $(OPT) $(PREDEF) simplified_version_yarkovsky_sim.c -L. -lreboundx -lrebound $(LIB) -o rebound
 	@echo ""
 	@echo "Problem file compiled successfully."
 

@@ -1,21 +1,14 @@
 export OPENGL=1
 
-ifndef REB_DIR
-ifneq ($(wildcard ../../../rebound/.*),) # Check for REBOUND in default location
-REB_DIR=../../../rebound
-endif
-ifneq ($(wildcard ../../../../rebound/.*),) # Check for REBOUNDx being inside REBOUND directory
-REB_DIR=../../../
-endif
-endif
-ifndef REB_DIR # REBOUND is not in default location and REB_DIR is not set
-    $(error REBOUNDx not in the same directory as REBOUND.  To use a custom location, you Must set the REB_DIR environment variable for the path to your rebound directory, e.g., export REB_DIR=/Users/dtamayo/rebound.  See reboundx.readthedocs.org)
-endif
-PROBLEMDIR=$(shell basename `dirname \`pwd\``)"/"$(shell basename `pwd`)
+
+export REB_DIR= /Users/nferich/GitHub/rebound
 
 include $(REB_DIR)/src/Makefile.defs
 
-REBX_DIR=../../
+PROBLEMDIR=$(shell basename `dirname \`pwd\``)"/"$(shell basename `pwd`)
+
+export REBX_DIR= /Users/nferich/GitHub/reboundx
+
 
 all: librebound.so libreboundx.so
 	@echo ""
